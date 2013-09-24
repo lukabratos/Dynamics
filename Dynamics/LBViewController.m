@@ -21,7 +21,8 @@
     
     CGRect squareFrame = CGRectMake(110, 50, 100, 100);
     UIView *square = [[UIView alloc] initWithFrame:squareFrame];
-    square.backgroundColor = [UIColor greenColor];
+    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"octocat.png"]];
+    [square addSubview:imageView];
     [self.view addSubview:square];
     
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];

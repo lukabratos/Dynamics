@@ -27,6 +27,10 @@
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     self.gravity = [[UIGravityBehavior alloc] initWithItems:@[square]];
     [self.animator addBehavior:self.gravity];
+    
+    self.collision = [[UICollisionBehavior alloc] initWithItems:@[square]];
+    self.collision.translatesReferenceBoundsIntoBoundary = YES;
+    [self.animator addBehavior:self.collision];
 }
 
 - (void)didReceiveMemoryWarning

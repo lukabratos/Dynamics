@@ -13,5 +13,6 @@
 @property (nonatomic, strong) UIDynamicAnimator* animator;
 @property (nonatomic, strong) UIGravityBehavior* gravity;
 @property (nonatomic, strong) UICollisionBehavior* collision;
+@property (nonatomic, strong) UIDynamicItemBehavior* itemBehaviour;
 
 @end

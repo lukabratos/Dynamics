@@ -19,11 +19,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    CGRect squareFrame = CGRectMake(110, 50, 100, 100);
-    UIView *square = [[UIView alloc] initWithFrame:squareFrame];
+    self.view.backgroundColor = [UIColor orangeColor];
+    
+    CGRect octocatFrame = CGRectMake(110, 50, 100, 100);
+    UIView *octocat = [[UIView alloc] initWithFrame:octocatFrame];
     UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"octocat.png"]];
-    [square addSubview:imageView];
-    [self.view addSubview:square];
+    [octocat addSubview:imageView];
+    [self.view addSubview:octocat];
     
     UIView* firstBarrier = [[UIView alloc] initWithFrame:CGRectMake(0, 170, 150, 20)];
     firstBarrier.backgroundColor = [UIColor yellowColor];
@@ -34,10 +36,14 @@
     [self.view addSubview:secondBarrier];
     
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    self.gravity = [[UIGravityBehavior alloc] initWithItems:@[square]];
+    self.gravity = [[UIGravityBehavior alloc] initWithItems:@[octocat]];
     [self.animator addBehavior:self.gravity];
     
-    self.collision = [[UICollisionBehavior alloc] initWithItems:@[square]];
+    self.itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:@[octocat]];
+    self.itemBehaviour.elasticity = 0.8;
+    [self.animator addBehavior:self.itemBehaviour];
+    
+    self.collision = [[UICollisionBehavior alloc] initWithItems:@[octocat, firstBarrier, secondBarrier]];
     self.collision.translatesReferenceBoundsIntoBoundary = YES;
     [self.animator addBehavior:self.collision];
 }

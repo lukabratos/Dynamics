@@ -25,6 +25,14 @@
     [square addSubview:imageView];
     [self.view addSubview:square];
     
+    UIView* firstBarrier = [[UIView alloc] initWithFrame:CGRectMake(0, 170, 150, 20)];
+    firstBarrier.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:firstBarrier];
+    
+    UIView* secondBarrier = [[UIView alloc] initWithFrame:CGRectMake(170, 350, 150, 20)];
+    secondBarrier.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:secondBarrier];
+    
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     self.gravity = [[UIGravityBehavior alloc] initWithItems:@[square]];
     [self.animator addBehavior:self.gravity];

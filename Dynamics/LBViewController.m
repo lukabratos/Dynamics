@@ -23,6 +23,10 @@
     UIView *square = [[UIView alloc] initWithFrame:squareFrame];
     square.backgroundColor = [UIColor greenColor];
     [self.view addSubview:square];
+    
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    self.gravity = [[UIGravityBehavior alloc] initWithItems:@[square]];
+    [self.animator addBehavior:self.gravity];
 }
 
 - (void)didReceiveMemoryWarning

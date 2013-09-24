@@ -10,4 +10,7 @@
 
 @interface LBViewController : UIViewController
 
+@property (nonatomic, strong) UIDynamicAnimator* animator;
+@property (nonatomic, strong) UIGravityBehavior* gravity;
+
 @end
